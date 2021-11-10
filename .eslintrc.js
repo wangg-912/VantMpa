@@ -9,7 +9,7 @@ export default defineConfig({
     },
     parser: 'vue-eslint-parser',
     parserOptions: {
-        ecmaVersion: 2020,
+        ecmaVersion: 2016,
         sourceType: 'module'
     },
     extends: ['airbnb-base', 'plugin:vue/vue3-essential', 'prettier'],

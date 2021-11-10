@@ -9,21 +9,27 @@ const { VITE_BASE_URL } = loadEnv();
 // https://vitejs.dev/config/
 export default (_) => defineConfig({
   base: VITE_BASE_URL,
+  css: {
+    preprocessorOptions: {
+      less: {
+        javascriptEnabled: true,
+        modifyVars: {
+          hack: `true; @import (reference) "${path.resolve(__dirname, 'src/styles/variables.less')}";`,
+        },
+      },
+      scss: {
+        additionalData: `@import "src/styles/variables.scss";`
+      },
+    },
+  },
   resolve: {
     alias: {
       '@': path.resolve(__dirname, 'src'),
     },
   },
-  css: {
-    preprocessorOptions: {
-      scss: {
-        additionalData: ``,
-      },
-    },
-  },
   server: {
     host: '192.168.2.44',
-    port: 8888,
+    port: 3099,
     /* proxy: {
       '/api': {
         target: 'http://192.168.2.16:8304',
@@ -67,11 +73,11 @@ export default (_) => defineConfig({
         {
           libraryName: "vant",
           esModule: true,
-          resolveStyle: (name) => `vant/es/${name}/style`,
+          resolveStyle: (name) => `vant/es/${name}/style/less`
         },
       ],
     }),],
   optimizeDeps: {
-    include: ['vue', 'vuex', 'axios']
+    include: ['vue', 'vuex', 'vant', 'axios']
   },
 })
