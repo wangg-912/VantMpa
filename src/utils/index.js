@@ -2,6 +2,9 @@
  * @description 函数防抖: 解决refresh频繁刷新
  * use import {debounce} from '@/utils/format'
  * debounce(fun,delay)
+ * @param { Function } func 
+ * @param { String|Number } delay 
+ * @returns 
  */
 export function debounce(func, delay) {
     let timer = null
@@ -15,6 +18,9 @@ export function debounce(func, delay) {
 /**
  * @description 格式化时间
  * use formatDate((new Date()),'yyyy-MM-dd hh:mm:ss') => 2020-11-18 19:44:48
+ * @param { Date } time 
+ * @param { String } fmt 
+ * @returns 
  */
 export function formatDate(time, fmt) {
     let date = new Date(time)
@@ -60,7 +66,7 @@ export function getQueryUrl() {
 
 /**
  * @description 是否是空对象
- * @param {*} obj 
+ * @param { Any } obj 
  * @returns 
  */
 export function isEmptyObject(obj) {
